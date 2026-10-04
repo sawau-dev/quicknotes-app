@@ -1,0 +1,167 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>QuickNotes | Capture. Organize. Remember.</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-content">
+            <p class="brand">QUICKNOTES</p>
+
+            <h1>Capture your thoughts.<br>Keep what matters.</h1>
+
+            <p class="tagline">
+                A simple, organized space for your ideas, tasks and
+                study notes.
+            </p>
+        </div>
+    </header>
+
+
+    <!-- Main application -->
+    <main class="app-container">
+
+        <!-- Add Note Section -->
+        <section class="app-section add-note-section" aria-labelledby="add-note-title">
+
+            <div class="section-header">
+                <div class="section-number">01</div>
+
+                <div>
+                    <p class="section-label">CREATE</p>
+                    <h2 id="add-note-title">Add a note</h2>
+                    <p class="section-description">
+                        Write something you want to remember.
+                    </p>
+                </div>
+            </div>
+
+
+            <form id="note-form">
+
+                <div class="form-group">
+                    <label for="note-input">Your note</label>
+
+                    <input
+                        type="text"
+                        id="note-input"
+                        name="note"
+                        placeholder="What would you like to remember?"
+                        autocomplete="off"
+                    >
+
+                    <div class="input-info">
+                        <small>Maximum 200 characters</small>
+                        <small id="character-count">0 / 200</small>
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="note-category">Category</label>
+
+                    <select id="note-category" name="category">
+                        <option value="Personal">Personal</option>
+                        <option value="Work">Work</option>
+                        <option value="Study">Study</option>
+                    </select>
+                </div>
+
+
+                <button type="submit" class="primary-button">
+                    <span aria-hidden="true">+</span>
+                    Add Note
+                </button>
+
+            </form>
+
+
+            <p id="error-message" role="alert" aria-live="polite"></p>
+
+        </section>
+
+
+        <!-- Notes Section -->
+        <section class="app-section notes-section" aria-labelledby="notes-title">
+
+            <div class="section-header">
+                <div class="section-number">02</div>
+
+                <div>
+                    <p class="section-label">YOUR COLLECTION</p>
+                    <h2 id="notes-title">Your notes</h2>
+                    <p class="section-description">
+                        Search and manage everything you've saved.
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Search and controls -->
+            <div class="notes-toolbar">
+
+                <div class="search-group">
+                    <label for="search-input">Search notes</label>
+
+                    <div class="search-box">
+                        <span class="search-icon" aria-hidden="true">⌕</span>
+
+                        <input
+                            type="search"
+                            id="search-input"
+                            placeholder="Search your notes..."
+                            autocomplete="off"
+                        >
+                    </div>
+                </div>
+
+
+                <button
+                    type="button"
+                    id="clear-all-button"
+                    class="secondary-button"
+                >
+                    Clear all
+                </button>
+
+            </div>
+
+
+            <!-- Note count -->
+            <p id="note-count" aria-live="polite">
+                You have no notes yet.
+            </p>
+
+
+            <!-- Notes are inserted here by JavaScript -->
+            <ul id="notes-list"></ul>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>
+            <strong>QuickNotes</strong> &copy; 2026
+        </p>
+
+        <p>
+            Capture. Organize. Remember.
+        </p>
+    </footer>
+
+</body>
+</html>
+```

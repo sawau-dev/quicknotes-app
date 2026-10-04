@@ -1,0 +1,711 @@
+```css
+/* =========================================
+   QUICKNOTES
+   Main stylesheet
+   ========================================= */
+
+
+/* =========================================
+   1. RESET & BASE STYLES
+   ========================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #f3f5f7;
+    --surface: #ffffff;
+    --surface-soft: #f8fafb;
+
+    --text-primary: #18222d;
+    --text-secondary: #66727f;
+    --text-muted: #8a95a1;
+
+    --accent: #176b6b;
+    --accent-dark: #0f5050;
+
+    --personal: #159a91;
+    --work: #8f3030;
+    --study: #2d67a8;
+
+    --border: #e2e7eb;
+    --error: #b42318;
+
+    --shadow: 0 10px 30px rgba(24, 34, 45, 0.07);
+    --shadow-hover: 0 14px 35px rgba(24, 34, 45, 0.11);
+
+    --radius: 14px;
+    --transition: 180ms ease;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        ui-sans-serif,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+    color: var(--text-primary);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   2. HEADER
+   ========================================= */
+
+.site-header {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #103f42 0%,
+            #176b6b 55%,
+            #238686 100%
+        );
+
+    color: white;
+    padding: 72px 24px 82px;
+}
+
+.site-header::after {
+    content: "";
+
+    position: absolute;
+    width: 300px;
+    height: 300px;
+
+    right: -100px;
+    top: -150px;
+
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 50%;
+}
+
+.site-header::before {
+    content: "";
+
+    position: absolute;
+    width: 180px;
+    height: 180px;
+
+    right: 80px;
+    bottom: -130px;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 50%;
+}
+
+.header-content {
+    position: relative;
+    z-index: 1;
+
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.brand {
+    margin-bottom: 18px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.2em;
+    opacity: 0.8;
+}
+
+.site-header h1 {
+    max-width: 650px;
+
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    font-weight: 800;
+}
+
+.tagline {
+    max-width: 540px;
+    margin-top: 22px;
+
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 1.05rem;
+}
+
+
+/* =========================================
+   3. MAIN LAYOUT
+   ========================================= */
+
+.app-container {
+    width: 100%;
+    max-width: 700px;
+
+    margin: -38px auto 0;
+    padding: 0 20px 60px;
+
+    position: relative;
+    z-index: 2;
+}
+
+.app-section {
+    background: var(--surface);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    padding: 30px;
+
+    box-shadow: var(--shadow);
+}
+
+.app-section + .app-section {
+    margin-top: 22px;
+}
+
+
+/* =========================================
+   4. SECTION HEADINGS
+   ========================================= */
+
+.section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    margin-bottom: 28px;
+}
+
+.section-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    background: #e8f3f3;
+    color: var(--accent);
+
+    font-size: 0.75rem;
+    font-weight: 800;
+}
+
+.section-label {
+    margin-bottom: 2px;
+
+    color: var(--accent);
+
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.13em;
+}
+
+.section-header h2 {
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.section-description {
+    margin-top: 4px;
+
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+
+/* =========================================
+   5. FORM
+   ========================================= */
+
+#note-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 180px;
+}
+
+.form-group label,
+.search-group label {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--text-primary);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+input,
+select {
+    width: 100%;
+
+    min-height: 46px;
+
+    padding: 0 13px;
+
+    border: 1px solid var(--border);
+    border-radius: 9px;
+
+    background: var(--surface);
+
+    color: var(--text-primary);
+
+    font: inherit;
+    font-size: 0.9rem;
+
+    outline: none;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+input:focus,
+select:focus {
+    border-color: var(--accent);
+
+    box-shadow:
+        0 0 0 3px rgba(23, 107, 107, 0.12);
+}
+
+.input-info {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 6px;
+
+    color: var(--text-muted);
+
+    font-size: 0.7rem;
+}
+
+#character-count {
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* =========================================
+   6. BUTTONS
+   ========================================= */
+
+button {
+    border: none;
+
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform var(--transition),
+        background var(--transition),
+        box-shadow var(--transition),
+        opacity var(--transition);
+}
+
+button:hover {
+    transform: translateY(-1px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+
+    min-height: 46px;
+
+    padding: 0 18px;
+
+    border-radius: 9px;
+
+    background: var(--accent);
+    color: white;
+
+    box-shadow: 0 5px 14px rgba(23, 107, 107, 0.2);
+
+    white-space: nowrap;
+}
+
+.primary-button:hover {
+    background: var(--accent-dark);
+    box-shadow: 0 7px 18px rgba(23, 107, 107, 0.27);
+}
+
+.primary-button span {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.secondary-button {
+    min-height: 42px;
+
+    padding: 0 14px;
+
+    border: 1px solid var(--border);
+    border-radius: 8px;
+
+    background: var(--surface);
+    color: var(--text-secondary);
+
+    font-size: 0.8rem;
+}
+
+.secondary-button:hover {
+    border-color: #c7d0d7;
+    background: var(--surface-soft);
+    color: var(--text-primary);
+}
+
+
+/* =========================================
+   7. ERROR MESSAGE
+   ========================================= */
+
+#error-message {
+    min-height: 22px;
+
+    margin-top: 12px;
+
+    color: var(--error);
+
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   8. NOTES TOOLBAR
+   ========================================= */
+
+.notes-toolbar {
+    display: flex;
+    align-items: flex-end;
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.search-group {
+    flex: 1;
+}
+
+.search-box {
+    position: relative;
+}
+
+.search-box input {
+    padding-left: 39px;
+}
+
+.search-icon {
+    position: absolute;
+
+    left: 13px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--text-muted);
+
+    font-size: 1.25rem;
+
+    pointer-events: none;
+}
+
+#note-count {
+    margin-bottom: 14px;
+
+    color: var(--text-secondary);
+
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   9. NOTES LIST
+   ========================================= */
+
+#notes-list {
+    list-style: none;
+}
+
+.note-card {
+    position: relative;
+
+    padding: 18px 18px 16px;
+
+    margin-bottom: 12px;
+
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+
+    border-radius: 10px;
+
+    background: var(--surface);
+
+    transition:
+        transform var(--transition),
+        box-shadow var(--transition),
+        border-color var(--transition);
+}
+
+.note-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+
+/* =========================================
+   10. CATEGORY STYLES
+   ========================================= */
+
+.note-card.category-personal {
+    border-left-color: var(--personal);
+}
+
+.note-card.category-work {
+    border-left-color: var(--work);
+}
+
+.note-card.category-study {
+    border-left-color: var(--study);
+}
+
+.category-label {
+    display: inline-block;
+
+    margin-bottom: 9px;
+
+    padding: 3px 8px;
+
+    border-radius: 20px;
+
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.category-personal .category-label {
+    background: #e6f7f5;
+    color: #08766e;
+}
+
+.category-work .category-label {
+    background: #f8e9e9;
+    color: #7c2525;
+}
+
+.category-study .category-label {
+    background: #eaf1fa;
+    color: #24568e;
+}
+
+
+/* =========================================
+   11. NOTE CONTENT
+   ========================================= */
+
+.note-text {
+    margin-bottom: 12px;
+
+    color: var(--text-primary);
+
+    font-size: 0.95rem;
+    line-height: 1.55;
+
+    overflow-wrap: anywhere;
+}
+
+.note-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.note-date {
+    color: var(--text-muted);
+
+    font-size: 0.7rem;
+}
+
+.delete-button {
+    padding: 5px 8px;
+
+    border-radius: 6px;
+
+    background: transparent;
+    color: #9a4a4a;
+
+    font-size: 0.72rem;
+}
+
+.delete-button:hover {
+    background: #f9eeee;
+    color: #7c2525;
+}
+
+
+/* =========================================
+   12. EMPTY SEARCH STATE
+   ========================================= */
+
+.empty-state {
+    padding: 28px 16px;
+
+    border: 1px dashed var(--border);
+    border-radius: 10px;
+
+    color: var(--text-muted);
+
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+
+/* =========================================
+   13. FOOTER
+   ========================================= */
+
+.site-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    width: 100%;
+    max-width: 700px;
+
+    margin: 0 auto;
+    padding: 0 20px 35px;
+
+    color: var(--text-muted);
+
+    font-size: 0.72rem;
+}
+
+.site-footer strong {
+    color: var(--text-secondary);
+}
+
+
+/* =========================================
+   14. RESPONSIVE DESIGN
+   ========================================= */
+
+@media (max-width: 600px) {
+
+    .site-header {
+        padding: 52px 20px 70px;
+    }
+
+    .site-header h1 {
+        font-size: 2.35rem;
+    }
+
+    .tagline {
+        font-size: 0.92rem;
+    }
+
+    .app-container {
+        padding: 0 14px 45px;
+    }
+
+    .app-section {
+        padding: 22px;
+    }
+
+    .section-header {
+        gap: 12px;
+    }
+
+    #note-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .form-group {
+        width: 100%;
+    }
+
+    .primary-button {
+        width: 100%;
+    }
+
+    .notes-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .secondary-button {
+        width: 100%;
+    }
+
+    .site-footer {
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+    }
+}
+
+
+/* =========================================
+   15. VERY SMALL SCREENS
+   ========================================= */
+
+@media (max-width: 380px) {
+
+    .app-section {
+        padding: 18px;
+    }
+
+    .section-number {
+        width: 32px;
+        height: 32px;
+    }
+
+    .section-header h2 {
+        font-size: 1.2rem;
+    }
+
+    .site-header h1 {
+        font-size: 2rem;
+    }
+}
+```
