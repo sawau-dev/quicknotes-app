@@ -10,6 +10,13 @@
 
 const noteForm = document.querySelector("#note-form");
 const noteInput = document.querySelector("#note-input");
+const characterCount = document.querySelector("#character-count");
+
+
+noteInput.addEventListener("input", () => {
+    characterCount.textContent = `${noteInput.value.length} / 200`;
+});
+
 const noteCategory = document.querySelector("#note-category");
 const notesList = document.querySelector("#notes-list");
 const noteCount = document.querySelector("#note-count");
