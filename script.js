@@ -399,6 +399,7 @@ noteForm.addEventListener(
          */
 
         noteInput.value = "";
+    characterCount.textContent = "0 / 200";
 
         characterCount.textContent =
             "0 / 200";
