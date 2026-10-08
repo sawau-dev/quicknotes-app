@@ -22,7 +22,6 @@ const notesList = document.querySelector("#notes-list");
 const noteCount = document.querySelector("#note-count");
 const errorMessage = document.querySelector("#error-message");
 const searchInput = document.querySelector("#search-input");
-const characterCount = document.querySelector("#character-count");
 const clearAllButton = document.querySelector("#clear-all-button");
 
 
