@@ -22,4 +22,21 @@ QuickNotes is a simple and responsive browser-based note-taking application buil
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/6manusigei3/quicknotes-app.git
+   git clone https://github.com/sawau-dev/quicknotes-app.git
+
+2. Open the project folder:
+
+   cd quicknotes-app
+
+3. Open index.html in a web browser.
+
+No additional dependencies or installation steps are required.
+
+##What I Learned
+- I learned how to use JavaScript DOM methods such as createElement, textContent, and querySelector to build and update page content.
+- I learned how to use localStorage with JSON.stringify() and JSON.parse() to save and restore notes in the browser.
+- I learned how to validate user input and provide clear feedback for empty or overly long notes.
+- I learned how to filter notes using a search input and update the displayed results dynamically.
+- I learned why using textContent instead of innerHTML is safer when displaying user-provided content.
+- I learned how semantic HTML, labels, live regions, and responsive CSS can improve accessibility and usability.
+
